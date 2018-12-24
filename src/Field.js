@@ -74,9 +74,9 @@ export default class Field {
         }
     }
 
-    draw(ctx) {
+    draw(ctx, isPlaying) {
         this.Entities.forEach((e) => e.draw(ctx))
-        this.update()
+        if (isPlaying) this.update()
     }
 
     draw_path(ctx) {
