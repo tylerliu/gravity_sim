@@ -16,7 +16,7 @@ export default class Entity {
         //0 mass is white
         if (mass === 0 || mass <= 0.000001) return '#FFFFFF'
         let lo = Math.log2(mass)
-        return 'hsl(' + ((lo * 5.5) | 0) + ', 100%, 50%)'
+        return 'hsl(' + ((lo * 10) | 0) + ', 100%, 50%)'
     }
 
     get color() {
@@ -38,5 +38,10 @@ export default class Entity {
         ctx.lineWidth = 0;
         ctx.strokeStyle = 'rgba(0, 0, 0, 0)';
         ctx.stroke();
+    }
+
+    static drawExample(ctx, mass, x, y) {
+        let e = new Entity(mass, x, y, 0, 0)
+        e.draw(ctx)
     }
 }

@@ -4,43 +4,59 @@
 import React, { Component } from 'react';
 import PlayPauseButton from './PlayPauseButton'
 import MassSlider from "./MassSlider";
+import './Controller.css'
 
 export default class Controller extends Component{
 
     constructor(props) {
         super(props)
+        this.pathDrawing = false;
     }
 
     render() {
         return(
-            <div style={{display: "flex", flexDirection: 'row', alignItems: "center", justifyContent: "space-between", backgroundColor: "#E8E8E8"}}>
-                <div>
-                    <input type="checkbox" name="path_switch" ref="pathCheckBox" onClick={this.changePathDrawing.bind(this)}/>
-                    <label>Path</label>
-                </div>
+            <div className="controller">
 
+                <PlayPauseButton onClick={this.changePlayState.bind(this)} style={{height: "10vh", width: "10vh", padding:5}}/>
                 <MassSlider changeMass={this.changeMass.bind(this)}/>
+                <button className="togglePath" ref="pathCheckBox" onClick={this.changePathDrawing.bind(this)}><strong>Path</strong></button>
 
-                <PlayPauseButton onClick={this.changePlayState.bind(this)} style={{height: "10vh", width: "10vh"}}/>
+                <div className="div2">
+                    <label>Entities: {this.numEntities + "  "}</label>
+                    <button className="clear" onClick={(e) => {this.props.stage.clear();
+                        e.target.blur();}}><strong>CLEAR</strong></button>
+                </div>
             </div>
         )
-        //pause/play
-        //mass and color slider
+
+        //show number of particle
+        //clear button
     }
 
     componentDidMount() {
-
+        this.setState({});
     }
 
     changePlayState(new_state) {
-        this.props.main_stage.isPlaying = new_state
+        this.props.stage.isPlaying = new_state
     }
 
     changePathDrawing() {
-        this.props.main_stage.drawingPath(this.refs.pathCheckBox.checked);
+        this.pathDrawing = !this.pathDrawing;
+        if (this.pathDrawing)
+            this.refs.pathCheckBox.className = "togglePath active";
+        else this.refs.pathCheckBox.className = "togglePath";
+        this.props.stage.drawingPath(this.pathDrawing);
+        this.setState({});
+        this.refs.pathCheckBox.blur();
     }
 
     changeMass(mass) {
-        this.props.main_stage.selectedMass = mass;
+        this.props.stage.selectedMass = mass;
+    }
+
+    updateEntity(num) {
+        this.numEntities = num;
+        this.setState({});
     }
 }

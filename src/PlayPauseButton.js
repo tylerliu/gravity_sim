@@ -21,8 +21,9 @@ export default class Controller extends Component {
                    alt={this.state.playing? "Pause" : "Play"}
                    ref="button" className="button"
                    onClick={this.onClick.bind(this)}
-                 height={Math.min(window.innerHeight, window.innerWidth) * 0.1}
-                 width={Math.min(window.innerHeight, window.innerWidth) * 0.1}
+                   height={Math.min(window.innerHeight, window.innerWidth) * 0.08}
+                   width={Math.min(window.innerHeight, window.innerWidth) * 0.08}
+                   style={{paddingLeft: Math.min(window.innerHeight, window.innerWidth) * 0.01}}
             />
         )
         //pause/play
@@ -31,11 +32,13 @@ export default class Controller extends Component {
 
     componentDidMount() {
         this.button = this.refs.button;
+        window.addEventListener('resize', ()=>this.setState({}))
     }
 
     onClick() {
         this.props.onClick(!this.state.playing);
         this.setState({playing: !this.state.playing});
+        this.refs.button.blur()
         return false;
     }
 

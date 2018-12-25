@@ -16,7 +16,7 @@ export default class MassSlider extends React.Component{
         return(
             <div style={{height: "10vh", width: "40vw", display: "flex", flexDirection: "column", justifyContent: "center"}}>
                 <style ref="style"/>
-                <input type="range" min="-1" max="21" defaultValue="1" step="any" className="slider"
+                <input type="range" min="-1" max="10" defaultValue="0" step="any" className="slider"
                        ref="slider" onChange={this.changeMass.bind(this)}/>
                 <label>Mass: {this.selectedMass.toPrecision(3)}</label>
             </div>
@@ -24,7 +24,7 @@ export default class MassSlider extends React.Component{
     }
 
     toMass(value) {
-        if (value < -0.1) {
+        if (value < -0.4) {
             this.refs.slider.value = -1;
             return 0;
         }

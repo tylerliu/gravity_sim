@@ -90,4 +90,8 @@ export default class Field {
             ctx.stroke();
         })
     }
+
+    clear() {
+        this.Entities = []
+    }
 }
