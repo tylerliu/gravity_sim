@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import pause_image from './pause_button.png'
 import play_image from './play_button.png'
+import './PlayPauseButton.css'
 
 export default class Controller extends Component {
 
@@ -16,10 +17,13 @@ export default class Controller extends Component {
 
     render() {
         return(
-            <input type="image" src={this.state.playing? pause_image : play_image} ref="button"
+            <input type="image" src={this.state.playing? pause_image : play_image}
+                   alt={this.state.playing? "Pause" : "Play"}
+                   ref="button" className="button"
                    onClick={this.onClick.bind(this)}
                  height={Math.min(window.innerHeight, window.innerWidth) * 0.1}
-                 width={Math.min(window.innerHeight, window.innerWidth) * 0.1}/>
+                 width={Math.min(window.innerHeight, window.innerWidth) * 0.1}
+            />
         )
         //pause/play
         //mass and color slider
@@ -34,4 +38,6 @@ export default class Controller extends Component {
         this.setState({playing: !this.state.playing});
         return false;
     }
+
+
 }

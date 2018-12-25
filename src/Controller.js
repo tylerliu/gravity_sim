@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import PlayPauseButton from './PlayPauseButton'
+import MassSlider from "./MassSlider";
 
 export default class Controller extends Component{
 
@@ -12,12 +13,15 @@ export default class Controller extends Component{
 
     render() {
         return(
-            <div style={{display: "flex", flexDirection: 'row', alignItems: "center", justifyContent: "space-between"}}>
-                <PlayPauseButton onClick={this.changePlayState.bind(this)} style={{height: "10vh", width: "10vh"}}/>
+            <div style={{display: "flex", flexDirection: 'row', alignItems: "center", justifyContent: "space-between", backgroundColor: "#E8E8E8"}}>
                 <div>
                     <input type="checkbox" name="path_switch" ref="pathCheckBox" onClick={this.changePathDrawing.bind(this)}/>
                     <label>Path</label>
                 </div>
+
+                <MassSlider changeMass={this.changeMass.bind(this)}/>
+
+                <PlayPauseButton onClick={this.changePlayState.bind(this)} style={{height: "10vh", width: "10vh"}}/>
             </div>
         )
         //pause/play
@@ -34,5 +38,9 @@ export default class Controller extends Component{
 
     changePathDrawing() {
         this.props.main_stage.drawingPath(this.refs.pathCheckBox.checked);
+    }
+
+    changeMass(mass) {
+        this.props.main_stage.selectedMass = mass;
     }
 }

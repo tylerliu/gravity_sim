@@ -12,12 +12,17 @@ export default class Entity {
         this.position_y = position_y;
     }
 
-    get color() {
-     //0 mass is white
-        if (this.mass === 0 || this.mass <= 0.000001) return '#FFFFFF';
-        let lo = Math.log2(this.mass);
+    static getColor(mass) {
+        //0 mass is white
+        if (mass === 0 || mass <= 0.000001) return '#FFFFFF'
+        let lo = Math.log2(mass)
         return 'hsl(' + ((lo * 5.5) | 0) + ', 100%, 50%)'
     }
+
+    get color() {
+        return Entity.getColor(this.mass)
+    }
+
 
     get radius() {
         if (this.mass === 0 || this.mass <= 0.000001) return 2;
