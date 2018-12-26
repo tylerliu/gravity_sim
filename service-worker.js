@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/gravity_sim/precache-manifest.5abd0665f218ed5eeceb2e3b0ab0e3bc.js"
+  "/gravity_sim/precache-manifest.01f5a282735e96bb748d0c879fba574e.js"
 );
 
 workbox.clientsClaim();

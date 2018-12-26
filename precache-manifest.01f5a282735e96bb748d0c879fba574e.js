@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/gravity_sim/static/css/main.181c394c.chunk.css"
   },
   {
-    "revision": "6be48b2d8b23e086716bd1d1c3ac2a27",
+    "revision": "34b501b136a52dbf6aca172f3090a949",
     "url": "/gravity_sim/index.html"
   }
 ];
