@@ -59,11 +59,19 @@ export default class Field {
                     let r_2 = Math.pow(this.Entities[i].position_x - this.Entities[j].position_x, 2) +
                         Math.pow(this.Entities[i].position_y - this.Entities[j].position_y, 2)
                     if (Math.sqrt(r_2) <= this.Entities[i].radius + this.Entities[j].radius) { //collided
-                        this.Entities[i].position_x = (this.Entities[i].position_x * this.Entities[i].mass + this.Entities[j].position_x * this.Entities[j].mass) / (this.Entities[i].mass + this.Entities[j].mass)
-                        this.Entities[i].position_y = (this.Entities[i].position_y * this.Entities[i].mass + this.Entities[j].position_y * this.Entities[j].mass) / (this.Entities[i].mass + this.Entities[j].mass)
-                        this.Entities[i].velocity_x = (this.Entities[i].velocity_x * this.Entities[i].mass + this.Entities[j].velocity_x * this.Entities[j].mass) / (this.Entities[i].mass + this.Entities[j].mass)
-                        this.Entities[i].velocity_y = (this.Entities[i].velocity_y * this.Entities[i].mass + this.Entities[j].velocity_y * this.Entities[j].mass) / (this.Entities[i].mass + this.Entities[j].mass)
-                        this.Entities[i].mass += this.Entities[j].mass
+                        if (this.Entities[i].mass < 0.000001 &&  this.Entities[j].mass < 0.000001) {
+                            this.Entities[i].position_x = (this.Entities[i].position_x + this.Entities[j].position_x) / 2
+                            this.Entities[i].position_y = (this.Entities[i].position_y + this.Entities[j].position_y) / 2
+                            this.Entities[i].velocity_x = (this.Entities[i].velocity_x + this.Entities[j].velocity_x) / 2
+                            this.Entities[i].velocity_y = (this.Entities[i].velocity_y + this.Entities[j].velocity_y) / 2
+
+                        } else {
+                            this.Entities[i].position_x = (this.Entities[i].position_x * this.Entities[i].mass + this.Entities[j].position_x * this.Entities[j].mass) / (this.Entities[i].mass + this.Entities[j].mass)
+                            this.Entities[i].position_y = (this.Entities[i].position_y * this.Entities[i].mass + this.Entities[j].position_y * this.Entities[j].mass) / (this.Entities[i].mass + this.Entities[j].mass)
+                            this.Entities[i].velocity_x = (this.Entities[i].velocity_x * this.Entities[i].mass + this.Entities[j].velocity_x * this.Entities[j].mass) / (this.Entities[i].mass + this.Entities[j].mass)
+                            this.Entities[i].velocity_y = (this.Entities[i].velocity_y * this.Entities[i].mass + this.Entities[j].velocity_y * this.Entities[j].mass) / (this.Entities[i].mass + this.Entities[j].mass)
+                            this.Entities[i].mass += this.Entities[j].mass
+                        }
 
                         //delete j
                         this.Entities.splice(j, 1)
