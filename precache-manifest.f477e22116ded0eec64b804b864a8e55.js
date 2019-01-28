@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/gravity_sim/static/js/runtime~main.b52ab2fd.js"
   },
   {
-    "revision": "7d773465f9da4d97425d",
-    "url": "/gravity_sim/static/js/main.7d773465.chunk.js"
+    "revision": "a4957ecdf565168a0169",
+    "url": "/gravity_sim/static/js/main.a4957ecd.chunk.js"
   },
   {
     "revision": "ac9ae1edcdde807d9986",
     "url": "/gravity_sim/static/js/1.ac9ae1ed.chunk.js"
   },
   {
-    "revision": "7d773465f9da4d97425d",
+    "revision": "a4957ecdf565168a0169",
     "url": "/gravity_sim/static/css/main.181c394c.chunk.css"
   },
   {
-    "revision": "34b501b136a52dbf6aca172f3090a949",
+    "revision": "044da4ec7d813bf9550299b335270db2",
     "url": "/gravity_sim/index.html"
   }
 ];
