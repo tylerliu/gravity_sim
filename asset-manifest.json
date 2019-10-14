@@ -1,15 +1,24 @@
 {
-  "main.css": "/gravity_sim/static/css/main.181c394c.chunk.css",
-  "main.js": "/gravity_sim/static/js/main.a4957ecd.chunk.js",
-  "main.js.map": "/gravity_sim/static/js/main.a4957ecd.chunk.js.map",
-  "static/js/1.ac9ae1ed.chunk.js": "/gravity_sim/static/js/1.ac9ae1ed.chunk.js",
-  "static/js/1.ac9ae1ed.chunk.js.map": "/gravity_sim/static/js/1.ac9ae1ed.chunk.js.map",
-  "runtime~main.js": "/gravity_sim/static/js/runtime~main.b52ab2fd.js",
-  "runtime~main.js.map": "/gravity_sim/static/js/runtime~main.b52ab2fd.js.map",
-  "static/css/main.181c394c.chunk.css.map": "/gravity_sim/static/css/main.181c394c.chunk.css.map",
-  "static/media/pause_button.png": "/gravity_sim/static/media/pause_button.72414a74.png",
-  "static/media/play_button.png": "/gravity_sim/static/media/play_button.e291b709.png",
-  "index.html": "/gravity_sim/index.html",
-  "precache-manifest.f477e22116ded0eec64b804b864a8e55.js": "/gravity_sim/precache-manifest.f477e22116ded0eec64b804b864a8e55.js",
-  "service-worker.js": "/gravity_sim/service-worker.js"
+  "files": {
+    "main.css": "/gravity_sim/static/css/main.e1273bf2.chunk.css",
+    "main.js": "/gravity_sim/static/js/main.ebea6ee9.chunk.js",
+    "main.js.map": "/gravity_sim/static/js/main.ebea6ee9.chunk.js.map",
+    "runtime-main.js": "/gravity_sim/static/js/runtime-main.cd16be19.js",
+    "runtime-main.js.map": "/gravity_sim/static/js/runtime-main.cd16be19.js.map",
+    "static/css/2.619dee99.chunk.css": "/gravity_sim/static/css/2.619dee99.chunk.css",
+    "static/js/2.1bce07ef.chunk.js": "/gravity_sim/static/js/2.1bce07ef.chunk.js",
+    "static/js/2.1bce07ef.chunk.js.map": "/gravity_sim/static/js/2.1bce07ef.chunk.js.map",
+    "index.html": "/gravity_sim/index.html",
+    "precache-manifest.b4a7abf90992dea54b93cc6611c962c1.js": "/gravity_sim/precache-manifest.b4a7abf90992dea54b93cc6611c962c1.js",
+    "service-worker.js": "/gravity_sim/service-worker.js",
+    "static/css/2.619dee99.chunk.css.map": "/gravity_sim/static/css/2.619dee99.chunk.css.map",
+    "static/css/main.e1273bf2.chunk.css.map": "/gravity_sim/static/css/main.e1273bf2.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd16be19.js",
+    "static/css/2.619dee99.chunk.css",
+    "static/js/2.1bce07ef.chunk.js",
+    "static/css/main.e1273bf2.chunk.css",
+    "static/js/main.ebea6ee9.chunk.js"
+  ]
 }
