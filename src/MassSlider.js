@@ -5,6 +5,7 @@
 import React from 'react'
 import './MassSlider.css'
 import Entity from './Entity'
+import Col from 'react-bootstrap/Col';
 
 export default class MassSlider extends React.Component{
     constructor(props) {
@@ -14,12 +15,12 @@ export default class MassSlider extends React.Component{
 
     render() {
         return(
-            <div style={{height: "10vh", width: "40vw", display: "flex", flexDirection: "column", justifyContent: "center"}}>
+            <Col sm={5} style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
                 <style ref="style"/>
                 <input type="range" min="-1" max="10" defaultValue="0" step="any" className="slider"
                        ref="slider" onChange={this.changeMass.bind(this)}/>
                 <label>Mass: {this.selectedMass.toPrecision(3)}</label>
-            </div>
+            </Col>
         )
     }
 

@@ -4,7 +4,9 @@
 import React, { Component } from 'react';
 import PlayPauseButton from './PlayPauseButton'
 import MassSlider from "./MassSlider";
-import './Controller.css'
+import Navbar from 'react-bootstrap/Navbar'
+import Button from 'react-bootstrap/Button'
+
 
 export default class Controller extends Component{
 
@@ -15,18 +17,15 @@ export default class Controller extends Component{
 
     render() {
         return(
-            <div className="controller">
-
-                <PlayPauseButton onClick={this.changePlayState.bind(this)} style={{height: "10vh", width: "10vh", padding:5}}/>
+            <Navbar bg="light" fixed="bottom" className="d-flex justify-content-around" >
+                <PlayPauseButton class="btn"onClick={this.changePlayState.bind(this)} style={{height: "10vh", width: "10vh", padding:5}}/>
                 <MassSlider changeMass={this.changeMass.bind(this)}/>
-                <button className="togglePath" ref="pathCheckBox" onClick={this.changePathDrawing.bind(this)}><strong>Path</strong></button>
+                <Button variant="outline-info" ref="pathCheckBox" onClick={this.changePathDrawing.bind(this)}>Path</Button>
 
-                <div className="div2">
-                    <label>Entities: {this.numEntities + "  "}</label>
-                    <button className="clear" onClick={(e) => {this.props.stage.clear();
-                        e.target.blur();}}><strong>CLEAR</strong></button>
-                </div>
-            </div>
+                <span>Entities: {this.numEntities + "  "}</span>
+                <Button variant="outline-danger" onClick={(e) => {this.props.stage.clear();
+                        e.target.blur();}}>Clear</Button>
+            </Navbar>
         )
 
         //show number of particle
@@ -43,9 +42,14 @@ export default class Controller extends Component{
 
     changePathDrawing() {
         this.pathDrawing = !this.pathDrawing;
-        if (this.pathDrawing)
-            this.refs.pathCheckBox.className = "togglePath active";
-        else this.refs.pathCheckBox.className = "togglePath";
+        if (this.pathDrawing) {
+            this.refs.pathCheckBox.variant = "info";
+            this.refs.pathCheckBox.className = "btn btn-info";
+        }
+        else {
+            this.refs.pathCheckBox.variant = "outline-info";
+            this.refs.pathCheckBox.className = "btn btn-outline-info";
+        }
         this.props.stage.drawingPath(this.pathDrawing);
         this.setState({});
         this.refs.pathCheckBox.blur();

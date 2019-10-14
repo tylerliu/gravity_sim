@@ -18,12 +18,12 @@ class Stage extends Component {
 
     render() {
         return(
-            <div style={{height: "100vh", width: "100vw", flex : 1}}>
-                <div style={{height: window.innerHeight * 0.9, width: window.innerWidth, position: "relative"}}>
-                    <canvas ref="path_canvas" width={window.innerWidth} height={window.innerHeight * 0.9} style={{position: "absolute", left: 0, top: 0, zIndex: 0, backgroundColor : 'black'}} />
-                    <canvas ref="canvas" width={window.innerWidth} height={window.innerHeight * 0.9} style={{position: "absolute", left: 0, top: 0, zIndex: 1, backgroundColor : 'transparent'}}/>
+            <div style={{position: "absolute", left: 0, top: 0}}>
+                <div style={{height: window.innerHeight, width: window.innerWidth, position: "relative"}}>
+                    <canvas ref="path_canvas" width={window.innerWidth} height={window.innerHeight} style={{position: "absolute", left: 0, top: 0, zIndex: 0, backgroundColor : 'black'}} />
+                    <canvas ref="canvas" width={window.innerWidth} height={window.innerHeight} style={{position: "absolute", left: 0, top: 0, zIndex: 1, backgroundColor : 'transparent'}}/>
                 </div>
-                <Controller ref="controller" stage={this} style={{height: window.innerHeight * 0.1, width: window.innerWidth}}/>
+                <Controller ref="controller" stage={this} />
             </div>
         )
     }

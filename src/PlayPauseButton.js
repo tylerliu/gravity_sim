@@ -2,9 +2,8 @@
  * Created by TylerLiu on 2018/12/24.
  */
 import React, { Component } from 'react';
-import pause_image from './pause_button.png'
-import play_image from './play_button.png'
-import './PlayPauseButton.css'
+import Button from 'react-bootstrap/Button';
+import Octicon, {primitiveSquare, triangleRight} from 'octicons-react'
 
 export default class Controller extends Component {
 
@@ -16,18 +15,17 @@ export default class Controller extends Component {
     }
 
     render() {
-        return(
-            <input type="image" src={this.state.playing? pause_image : play_image}
-                   alt={this.state.playing? "Pause" : "Play"}
-                   ref="button" className="button"
-                   onClick={this.onClick.bind(this)}
-                   height={Math.min(window.innerHeight, window.innerWidth) * 0.08}
-                   width={Math.min(window.innerHeight, window.innerWidth) * 0.08}
-                   style={{paddingLeft: Math.min(window.innerHeight, window.innerWidth) * 0.01}}
-            />
+        if (this.state.playing)
+            return(
+                <Button variant='outline-dark' onClick={this.onClick.bind(this)}>
+                    <Octicon icon={primitiveSquare} scale='1.5'/> Stop
+                </Button>
+            )
+        else return(
+            <Button variant='outline-dark' onClick={this.onClick.bind(this)}>
+                <Octicon icon={triangleRight} scale='1.5'/> Play
+            </Button>
         )
-        //pause/play
-        //mass and color slider
     }
 
     componentDidMount() {
@@ -38,7 +36,6 @@ export default class Controller extends Component {
     onClick() {
         this.props.onClick(!this.state.playing);
         this.setState({playing: !this.state.playing});
-        this.refs.button.blur()
         return false;
     }
 

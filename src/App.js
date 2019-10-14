@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import Stage from './Stage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Container className="App">
         <Stage/>
-      </div>
-    );
+      </Container>
+    )
   }
 }
 
