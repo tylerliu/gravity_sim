@@ -18,7 +18,7 @@ class Stage extends Component {
 
     render() {
         return(
-            <div style={{position: "absolute", left: 0, top: 0}}>
+            <div style={{position: "absolute", left: 0, top: 0, touchAction: "none"}}>
                 <div style={{height: window.innerHeight, width: window.innerWidth, position: "relative"}}>
                     <canvas ref="path_canvas" width={window.innerWidth} height={window.innerHeight} style={{position: "absolute", left: 0, top: 0, zIndex: 0, backgroundColor : 'black'}} />
                     <canvas ref="canvas" width={window.innerWidth} height={window.innerHeight} style={{position: "absolute", left: 0, top: 0, zIndex: 1, backgroundColor : 'transparent'}}/>
