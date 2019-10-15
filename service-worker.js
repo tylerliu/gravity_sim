@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/gravity_sim/precache-manifest.76763e259965089496b63ba8e3d37f43.js"
+  "/gravity_sim/precache-manifest.2e9de37926846d1638c13e24ff497afc.js"
 );
 
 self.addEventListener('message', (event) => {
