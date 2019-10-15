@@ -42,18 +42,28 @@ class Stage extends Component {
         const path_canvas = this.refs.path_canvas
         this.path_ctx = path_canvas.getContext("2d")
         window.addEventListener('resize', ()=>this.setState({}))
+
         this.refs.canvas.onmousedown = (e) => {
             this.mouseDown = true;
             this.currentMX = this.mouseDownX = e.offsetX;
             this.currentMY = this.mouseDownY = e.offsetY;
         }
-
-        this.refs.canvas.onmousemove = (e) => {
-            this.currentMX = e.offsetX;
-            this.currentMY = e.offsetY;
+        this.refs.canvas.ontouchstart = (e) => {
+            this.mouseDown = true;
+            this.currentMX = this.mouseDownX = e.touches[0].clientX;
+            this.currentMY = this.mouseDownY = e.touches[0].clientY;
         }
 
-        this.refs.canvas.onmouseout = () => {
+        this.refs.canvas.onmousemove = (e) => {
+            this.currentMX = e.clientX;
+            this.currentMY = e.clientY;
+        }
+        this.refs.canvas.ontouchmove = (e) => {
+            this.currentMX = e.touches[0].clientX;
+            this.currentMY = e.touches[0].clientY;
+        }
+
+        this.refs.canvas.ontouchcancel = this.refs.canvas.onmouseout = () => {
             this.mouseDown = false;
         }
         this.refs.canvas.onmouseup = (e) => {
@@ -61,6 +71,14 @@ class Stage extends Component {
                 this.field.addEntity(this.selectedMass, this.mouseDownX, this.mouseDownY,
                 //velocity
                 (e.offsetX - this.mouseDownX)/2, (e.offsetY - this.mouseDownY)/2)
+            this.mouseDown = false;
+        }
+
+        this.refs.canvas.ontouchend = (e) => {
+            if (this.mouseDown === true)
+                this.field.addEntity(this.selectedMass, this.mouseDownX, this.mouseDownY,
+                //velocity
+                (e.changedTouches[0].clientX - this.mouseDownX)/2, (e.changedTouches[0].clientY - this.mouseDownY)/2)
             this.mouseDown = false;
         }
     }

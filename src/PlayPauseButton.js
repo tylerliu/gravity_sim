@@ -17,13 +17,13 @@ export default class Controller extends Component {
     render() {
         if (this.state.playing)
             return(
-                <Button variant='outline-dark' onClick={this.onClick.bind(this)}>
-                    <Octicon icon={primitiveSquare} scale='1.5'/> Stop
+                <Button variant='outline-dark' ref="ppButton" onClick={this.onClick.bind(this)}>
+                    <Octicon icon={primitiveSquare}/> Stop
                 </Button>
             )
         else return(
-            <Button variant='outline-dark' onClick={this.onClick.bind(this)}>
-                <Octicon icon={triangleRight} scale='1.5'/> Play
+            <Button variant='outline-dark' ref="ppButton" onClick={this.onClick.bind(this)}>
+                <Octicon icon={triangleRight}/> Play
             </Button>
         )
     }
@@ -34,8 +34,9 @@ export default class Controller extends Component {
     }
 
     onClick() {
-        this.props.onClick(!this.state.playing);
-        this.setState({playing: !this.state.playing});
+        this.props.onClick(!this.state.playing)
+        this.setState({playing: !this.state.playing})
+        this.refs.ppButton.blur()
         return false;
     }
 
